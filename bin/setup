@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+bundle install
+
+pushd test/demo > /dev/null
+bundle install
+popd > /dev/null

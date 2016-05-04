@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+pushd test/demo>/dev/null
+bundle exec rake teaspoon
+popd>/dev/null

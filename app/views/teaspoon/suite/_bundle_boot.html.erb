@@ -1,0 +1,5 @@
+<%= content_tag(:script, "", src: "/teaspoon_bundle/#{@suite.name}?#{params.slice(:file).to_query}") %>
+
+<script type="text/javascript">
+  Teaspoon.onWindowLoad(Teaspoon.execute);
+</script>
