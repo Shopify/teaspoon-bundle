@@ -11,7 +11,11 @@ module Teaspoon::Bundle
     private
     def contents
       @suite = Teaspoon::Suite.new(params)
-      contents = %Q{<% #{JSON.dump(@suite.spec_assets)}.each {|path| require_asset(path)} %>}
+      contents = %Q{<% #{JSON.dump(assets)}.each {|path| require_asset(path)} %>}
+    end
+
+    def assets
+      @suite.spec_assets.map {|asset| asset.split("?").first }
     end
   end
 end
