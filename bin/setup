@@ -2,6 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+gem install bundler --version '1.11.2'
 bundle install
 
 pushd test/demo > /dev/null
