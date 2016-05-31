@@ -3,3 +3,15 @@ set -e
 pushd test/demo>/dev/null
 bundle exec rake teaspoon
 popd>/dev/null
+
+pushd test/demo>/dev/null
+bundle exec rake teaspoon files=spec/javascripts/whatever_spec.js
+popd>/dev/null
+
+pushd test/demo_rails5>/dev/null
+bundle exec rake teaspoon
+popd>/dev/null
+
+pushd test/demo_rails5>/dev/null
+bundle exec rake teaspoon files=spec/javascripts/whatever_spec.js
+popd>/dev/null
