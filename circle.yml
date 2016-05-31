@@ -1,0 +1,11 @@
+machine:
+  ruby:
+    version: 2.3.0
+
+test:
+  override:
+    - bin/test
+
+dependencies:
+  override:
+    - bin/setup
