@@ -1,5 +1,38 @@
 #!/bin/bash
 set -e
+
 pushd test/demo>/dev/null
-bundle exec rake teaspoon
+output=$(bundle exec rake teaspoon)
+echo $output
+if [[ $output != *"2 examples, 0 failures"* ]]
+then
+  echo "expected '2 examples, 0 failures'"
+  exit 1
+fi
+
+output=$(bundle exec rake teaspoon files=spec/javascripts/whatever_spec.js)
+echo $output
+if [[ $output != *"1 example, 0 failures"* ]]
+then
+  echo "expected '1 example, 0 failures'"
+  exit 1
+fi
+popd>/dev/null
+
+pushd test/demo_rails5>/dev/null
+output=$(bundle exec rake teaspoon)
+echo $output
+if [[ $output != *"2 examples, 0 failures"* ]]
+then
+  echo "expected '2 examples, 0 failures'"
+  exit 1
+fi
+
+output=$(bundle exec rake teaspoon files=spec/javascripts/whatever_spec.js)
+echo $output
+if [[ $output != *"1 example, 0 failures"* ]]
+then
+  echo "expected '1 example, 0 failures'"
+  exit 1
+fi
 popd>/dev/null

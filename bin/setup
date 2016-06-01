@@ -8,3 +8,7 @@ bundle install
 pushd test/demo > /dev/null
 bundle install
 popd > /dev/null
+
+pushd test/demo_rails5 > /dev/null
+bundle install
+popd > /dev/null
