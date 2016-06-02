@@ -1,7 +1,7 @@
 module Teaspoon::Bundle
   class BundleController < ActionController::Base
     def serve
-      file = File.join(Teaspoon::Bundle.dir, 'teaspoon_bundle.js.erb')
+      file = File.join(Teaspoon::Bundle.dir, "teaspoon_bundle_#{params[:suite]}.js.erb")
       File.write(file, contents)
 
       asset = Rails.application.assets.find_asset(file)
