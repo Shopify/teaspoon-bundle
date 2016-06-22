@@ -3,9 +3,12 @@ module Teaspoon::Bundle
     def serve
       file = File.join(Teaspoon::Bundle.dir, "teaspoon_bundle_#{params[:suite]}.js.erb")
       File.write(file, contents)
-
-      asset = Rails.application.assets.find_asset(file)
-      render js: asset.to_s
+      begin
+        asset = Rails.application.assets.find_asset(file)
+        render js: asset.to_s
+      ensure
+        File.delete(file)
+      end
     end
 
     private
