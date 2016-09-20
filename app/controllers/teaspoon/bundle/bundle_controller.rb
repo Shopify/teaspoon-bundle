@@ -4,7 +4,7 @@ module Teaspoon::Bundle
       file = File.join(Teaspoon::Bundle.dir, "teaspoon_bundle_#{params[:suite]}.js.erb")
       File.write(file, contents)
       begin
-        asset = Rails.application.assets.find_asset(file)
+        asset = Rails.application.assets.find_asset(file, accept: 'application/javascript')
         render js: asset.to_s
       ensure
         File.delete(file)
