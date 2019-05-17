@@ -1,5 +1,7 @@
 module Teaspoon::Bundle
   class BundleController < ActionController::Base
+    skip_forgery_protection if default_protect_from_forgery
+
     def serve
       file = File.join(Teaspoon::Bundle.dir, "teaspoon_bundle_#{params[:suite]}.js.erb")
       File.write(file, contents)
