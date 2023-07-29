@@ -15,7 +15,6 @@ module Teaspoon
 
       config.after_initialize do |app|
         app.routes.prepend do
-          require Teaspoon::Bundle::Engine.root.join("app/controllers/teaspoon/bundle/bundle_controller")
           mount Teaspoon::Bundle::Engine => Teaspoon::Bundle::ENDPOINT, as: 'teaspoon_bundle'
         end
       end
